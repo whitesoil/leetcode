@@ -1,19 +1,16 @@
 package leetcode
 
-import "math"
-
 // FindMedianSortedArrays is 4th problem
 func FindMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	totalLength := len(nums1) + len(nums2)
-	medianIndex := float64(totalLength) / 2.0
-	var ceilMedianIndex float64
-	var floorMedianIndex float64
+	var ceilMedianIndex int
+	var floorMedianIndex int
 
 	if (totalLength % 2) == 0 {
-		ceilMedianIndex = math.Ceil(medianIndex)
-		floorMedianIndex = ceilMedianIndex - 1.0
+		ceilMedianIndex = totalLength / 2
+		floorMedianIndex = ceilMedianIndex - 1
 	} else {
-		ceilMedianIndex = math.Floor(medianIndex)
+		ceilMedianIndex = totalLength / 2
 		floorMedianIndex = ceilMedianIndex
 	}
 

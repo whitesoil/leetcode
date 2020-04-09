@@ -1,92 +1,101 @@
 package main
 
-import "math"
+// func findLogestPalindrome(chars []string) []string {
+// 	length := len(chars)
 
-func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
-	totalLength := len(nums1) + len(nums2)
-	medianIndex := float64(totalLength) / 2.0
-	var ceilMedianIndex float64
-	var floorMedianIndex float64
+// 	if length < 2 {
+// 		return chars
+// 	}
 
-	if (totalLength % 2) == 0 {
-		ceilMedianIndex = math.Ceil(medianIndex)
-		floorMedianIndex = ceilMedianIndex - 1.0
-	} else {
-		ceilMedianIndex = math.Floor(medianIndex)
-		floorMedianIndex = ceilMedianIndex
+// 	result := true
+
+// 	for i := 0; i < (length / 2); i++ {
+// 		compare := strings.Compare(chars[i], chars[length-i-1])
+
+// 		if compare != 0 {
+// 			result = false
+// 			break
+// 		}
+// 	}
+
+// 	if result {
+// 		return chars
+// 	}
+
+// 	opt1 := findLogestPalindrome(chars[0 : length-1])
+
+// 	if len(opt1) == length-1 {
+// 		return opt1
+// 	}
+
+// 	opt2 := findLogestPalindrome(chars[1:])
+
+// 	if len(opt2) == length-1 {
+// 		return opt2
+// 	}
+
+// 	if len(opt1) >= len(opt2) {
+// 		return opt1
+// 	} else {
+// 		return opt2
+// 	}
+// }
+
+// func longestPalindrome(s string) string {
+// 	chars := strings.Split(s, "")
+// 	result := findLogestPalindrome(chars)
+
+// 	return strings.Join(result, "")
+// }
+
+// P를 Palindrome 이라 칭한다.
+// 중심을 기준으로, 2n-1 (n > 1) 가 P 이기 위해서는 2(n-1)-1 또한 P여야 한다.
+// 중심을 기준으로, 2n (n > 1) 가 P 이기 위해서는 2(n-1)
+func findLogestPalindrome(s string, left int, right int) (int, int) {
+	i := left
+	j := right
+
+	for i >= 0 && j < len(s) {
+		if s[i] != s[j] {
+			break
+		}
+
+		i--
+		j++
 	}
 
-	leftValue := 0
-	rightValue := 0
+	return i + 1, j - 1
+}
 
-	for ceilMedianIndex >= 0 || floorMedianIndex >= 0 {
-		if len(nums1) == 0 {
-			if floorMedianIndex == 0 {
-				leftValue = nums2[0]
-			}
+func longestPalindrome(s string) string {
+	if len(s) == 0 {
+		return ""
+	}
 
-			if ceilMedianIndex == 0 {
-				rightValue = nums2[0]
-			}
+	left := 0
+	right := 0
 
-			if len(nums2) > 1 {
-				nums2 = nums2[1:]
-			} else {
-				nums2 = []int{}
-			}
-		} else if len(nums2) == 0 {
-			if floorMedianIndex == 0 {
-				leftValue = nums1[0]
-			}
-
-			if ceilMedianIndex == 0 {
-				rightValue = nums1[0]
-			}
-
-			if len(nums1) > 1 {
-				nums1 = nums1[1:]
-			} else {
-				nums1 = []int{}
-			}
-		} else if nums1[0] >= nums2[0] {
-			if floorMedianIndex == 0 {
-				leftValue = nums2[0]
-			}
-
-			if ceilMedianIndex == 0 {
-				rightValue = nums2[0]
-			}
-
-			if len(nums2) > 1 {
-				nums2 = nums2[1:]
-			} else {
-				nums2 = []int{}
-			}
-		} else if nums2[0] > nums1[0] {
-			if floorMedianIndex == 0 {
-				leftValue = nums1[0]
-			}
-
-			if ceilMedianIndex == 0 {
-				rightValue = nums1[0]
-			}
-
-			if len(nums1) > 1 {
-				nums1 = nums1[1:]
-			} else {
-				nums1 = []int{}
+	for i := 0; i < len(s)-1; i++ {
+		if s[i] == s[i+1] {
+			i, j := findLogestPalindrome(s, i, i+1)
+			if (right - left) < (j - i) {
+				left = i
+				right = j
 			}
 		}
 
-		floorMedianIndex--
-		ceilMedianIndex--
+		if i > 0 && (s[i-1] == s[i+1]) {
+			i, j := findLogestPalindrome(s, i-1, i+1)
+			if (right - left) < (j - i) {
+				left = i
+				right = j
+			}
+		}
 	}
 
-	return float64(leftValue+rightValue) / 2.0
+	return s[left:(right + 1)]
 }
 
 func main() {
-	nums1 := []int{1, 2}
-	nums2 := []int{3, 4}
-	print(findMedianSortedArrays(nums1, nums2))
+	print(longestPalindrome("babaddtattarrattatddetartrateedredividerb"))
 }

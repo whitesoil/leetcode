@@ -1,10 +1,9 @@
-package main
+package leetcode
 
 import "bytes"
 
-// l: 문자열 길이, r: number of rows, i: index of characters
-// 1번 라인 갯수: Ceil(l / (r+1))
-func convert(s string, numRows int) string {
+// Convert is 6th problem
+func Convert(s string, numRows int) string {
 	twoDim := make([]string, numRows)
 	reverse := false
 	index := 0
@@ -41,8 +40,4 @@ func convert(s string, numRows int) string {
 	}
 
 	return buffer.String()
-}
-
-func main() {
-	print(convert("AB", 1))
 }

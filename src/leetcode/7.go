@@ -1,6 +1,7 @@
-package main
+package leetcode
 
-func reverse(x int) int {
+// Reverse is 7th problem
+func Reverse(x int) int {
 	num := x
 	result := 0
 	for num != 0 {
@@ -14,8 +15,4 @@ func reverse(x int) int {
 	}
 
 	return result
-}
-
-func main() {
-	print(reverse(1234))
 }

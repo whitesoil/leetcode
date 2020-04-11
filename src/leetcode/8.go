@@ -1,13 +1,8 @@
-package main
+package leetcode
 
+// MyAtoi is 8th problem
 // "0" == 48, "9" == 57, "+" == 43, "-" == 45, " " == 32
-// 공백이 아닌 문자는 항상 종료 V
-// 공백은 숫자 앞에만 허용한다. V
-// 부호 뒤에는 반드시 숫자가 와야함 V
-// +-, -+ 허용 안함 V
-// 숫자 뒤에는 숫자만 와야함 V
-// overflow의 경우 2147483647 또는 -2147483648 리턴
-func myAtoi(str string) int {
+func MyAtoi(str string) int {
 	sign := 0
 	start := false
 	result := 0
@@ -64,8 +59,4 @@ func myAtoi(str string) int {
 	}
 
 	return result
-}
-
-func main() {
-	print(myAtoi("words and 987"))
 }

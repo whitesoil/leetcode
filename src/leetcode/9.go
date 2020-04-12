@@ -1,8 +1,9 @@
-package main
+package leetcode
 
 import "strconv"
 
-func isPalindrome(x int) bool {
+// IsPalindrome is 9th problem
+func IsPalindrome(x int) bool {
 	if x < 0 {
 		return false
 	}
@@ -22,8 +23,4 @@ func isPalindrome(x int) bool {
 	}
 
 	return true
-}
-
-func main() {
-	print(isPalindrome(121))
 }

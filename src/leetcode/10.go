@@ -1,4 +1,4 @@
-package main
+package leetcode
 
 // '*' == 42, '.' == 46
 func isStringMatch(s string, p string, sIndex int, pIndex int) bool {
@@ -60,24 +60,7 @@ func isStringMatch(s string, p string, sIndex int, pIndex int) bool {
 	return false
 }
 
-func isMatch(s string, p string) bool {
+// IsMatch is 10th problem
+func IsMatch(s string, p string) bool {
 	return isStringMatch(s, p, 0, 0)
-}
-
-func main() {
-	println(isMatch("aa", "a"))                   // false
-	println(isMatch("aa", "ab"))                  // false
-	println(isMatch("aa", "aa"))                  // true
-	println(isMatch("aa", "a."))                  // true
-	println(isMatch("aa", ".."))                  // true
-	println(isMatch("aa", ".a"))                  // true
-	println(isMatch("aa", ".b"))                  // false
-	println(isMatch("aa", "a*"))                  // true
-	println(isMatch("aa", "aa*a"))                // true
-	println(isMatch("ab", ".*"))                  // true
-	println(isMatch("mississippi", "mis*is*p*.")) // false
-	println(isMatch("aaa", "ab*a*c*a"))           // true
-	println(isMatch("a", "ab*"))                  // true
-	println(isMatch("ab", ".*c"))                 // false
-	println(isMatch("bb", ".bab"))                // false
 }

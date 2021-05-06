@@ -15,7 +15,7 @@ func MyAtoi(str string) int {
 			break
 		}
 
-		if (char == 43 || char == 45) && start == false {
+		if (char == 43 || char == 45) && !start {
 			// 부호 뒤에는 반드시 숫자가 와야한다
 			// +-, -+ 허용 안한다
 			start = true
@@ -40,7 +40,7 @@ func MyAtoi(str string) int {
 			continue
 		}
 
-		if (char < 48 || 57 < char) && start == true {
+		if (char < 48 || 57 < char) && !start {
 			// 공백은 숫자 앞에만 허용 된다
 			// 부호 뒤에는 반드시 숫자가 와야한다
 			// +-, -+ 허용 안한다

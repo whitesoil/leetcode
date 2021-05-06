@@ -26,7 +26,7 @@ func Convert(s string, numRows int) string {
 			reverse = false
 		}
 
-		if reverse == true {
+		if reverse {
 			index--
 		} else {
 			index++

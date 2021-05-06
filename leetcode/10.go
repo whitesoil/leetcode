@@ -4,11 +4,7 @@ package leetcode
 func isStringMatch(s string, p string, sIndex int, pIndex int) bool {
 	// P index is end
 	if pIndex == len(p) {
-		if sIndex == len(s) {
-			return true
-		}
-
-		return false
+		return sIndex == len(s)
 	}
 
 	// S index is end
@@ -29,7 +25,7 @@ func isStringMatch(s string, p string, sIndex int, pIndex int) bool {
 			for i := 0; i <= len(s)-sIndex; i++ {
 				res := isStringMatch(s, p, sIndex+i, pIndex+2)
 
-				if res == true {
+				if res {
 					return true
 				}
 			}
@@ -40,7 +36,7 @@ func isStringMatch(s string, p string, sIndex int, pIndex int) bool {
 		for i := 0; i <= len(s)-sIndex; i++ {
 			res := isStringMatch(s, p, sIndex+i, pIndex+2)
 
-			if res == true {
+			if res {
 				return true
 			}
 

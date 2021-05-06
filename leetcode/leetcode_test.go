@@ -7,51 +7,44 @@ import (
 )
 
 func TestAlgorithm(t *testing.T) {
-	height := []int{1, 8, 6, 2, 5, 4, 8, 3, 7}
-	area := leetcode.MaxArea(height)
+	input := 3
+	output := leetcode.IntToRoman(input)
 
-	if area != 49 {
-		t.Error("Wrong: ", area)
+	if output != "III" {
+		t.Error("Wrong: ", output)
 	}
 
-	height = []int{1, 1}
-	area = leetcode.MaxArea(height)
+	input = 4
+	output = leetcode.IntToRoman(input)
 
-	if area != 1 {
-		t.Error("Wrong2: ", area)
+	if output != "IV" {
+		t.Error("Wrong: ", output)
 	}
 
-	height = []int{4, 3, 2, 1, 4}
-	area = leetcode.MaxArea(height)
+	input = 9
+	output = leetcode.IntToRoman(input)
 
-	if area != 16 {
-		t.Error("Wrong3: ", area)
+	if output != "IX" {
+		t.Error("Wrong: ", output)
 	}
 
-	height = []int{1, 2, 1}
-	area = leetcode.MaxArea(height)
+	input = 58
+	output = leetcode.IntToRoman(input)
 
-	if area != 2 {
-		t.Error("Wrong4: ", area)
+	if output != "LVIII" {
+		t.Error("Wrong: ", output)
 	}
 
-	height = []int{1, 2, 4, 3}
-	area = leetcode.MaxArea(height)
+	input = 1994
+	output = leetcode.IntToRoman(input)
 
-	if area != 4 {
-		t.Error("Wrong4: ", area)
-	}
-
-	height = []int{2, 3, 4, 5, 18, 17, 6}
-	area = leetcode.MaxArea(height)
-
-	if area != 17 {
-		t.Error("Wrong4: ", area)
+	if output != "MCMXCIV" {
+		t.Error("Wrong: ", output)
 	}
 }
 func BenchmarkAlgorithm(b *testing.B) {
 	for n := 0; n < b.N; n++ {
-		height := []int{1, 8, 6, 2, 5, 4, 8, 3, 7}
-		leetcode.MaxArea(height)
+		input := 1994
+		leetcode.IntToRoman(input)
 	}
 }

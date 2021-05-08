@@ -1,46 +1,24 @@
 package leetcode_test
 
 import (
-	"strconv"
 	"testing"
 
 	"github.com/whitesoil/leetcode/leetcode"
 )
 
 func TestAlgorithm(t *testing.T) {
-	input := "III"
-	output := leetcode.RomanToInt(input)
+	input := []string{"flower", "flow", "flight"}
+	output := leetcode.LongestCommonPrefix(input)
 
-	if output != 3 {
-		t.Error("wrong: " + strconv.Itoa(output))
+	if output != "fl" {
+		t.Error("wrong: " + output)
 	}
 
-	input = "IV"
-	output = leetcode.RomanToInt(input)
+	input = []string{"dog", "racecar", "car"}
+	output = leetcode.LongestCommonPrefix(input)
 
-	if output != 4 {
-		t.Error("wrong: " + strconv.Itoa(output))
-	}
-
-	input = "IX"
-	output = leetcode.RomanToInt(input)
-
-	if output != 9 {
-		t.Error("wrong: " + strconv.Itoa(output))
-	}
-
-	input = "LVIII"
-	output = leetcode.RomanToInt(input)
-
-	if output != 58 {
-		t.Error("wrong: " + strconv.Itoa(output))
-	}
-
-	input = "MCMXCIV"
-	output = leetcode.RomanToInt(input)
-
-	if output != 1994 {
-		t.Error("wrong: " + strconv.Itoa(output))
+	if output != "" {
+		t.Error("wrong: " + output)
 	}
 }
 

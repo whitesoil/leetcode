@@ -1,47 +1,49 @@
 package leetcode_test
 
 import (
+	"strconv"
 	"testing"
 
 	"github.com/whitesoil/leetcode/leetcode"
 )
 
 func TestAlgorithm(t *testing.T) {
-	input := 3
-	output := leetcode.IntToRoman(input)
+	input := "III"
+	output := leetcode.RomanToInt(input)
 
-	if output != "III" {
-		t.Error("Wrong: ", output)
+	if output != 3 {
+		t.Error("wrong: " + strconv.Itoa(output))
 	}
 
-	input = 4
-	output = leetcode.IntToRoman(input)
+	input = "IV"
+	output = leetcode.RomanToInt(input)
 
-	if output != "IV" {
-		t.Error("Wrong: ", output)
+	if output != 4 {
+		t.Error("wrong: " + strconv.Itoa(output))
 	}
 
-	input = 9
-	output = leetcode.IntToRoman(input)
+	input = "IX"
+	output = leetcode.RomanToInt(input)
 
-	if output != "IX" {
-		t.Error("Wrong: ", output)
+	if output != 9 {
+		t.Error("wrong: " + strconv.Itoa(output))
 	}
 
-	input = 58
-	output = leetcode.IntToRoman(input)
+	input = "LVIII"
+	output = leetcode.RomanToInt(input)
 
-	if output != "LVIII" {
-		t.Error("Wrong: ", output)
+	if output != 58 {
+		t.Error("wrong: " + strconv.Itoa(output))
 	}
 
-	input = 1994
-	output = leetcode.IntToRoman(input)
+	input = "MCMXCIV"
+	output = leetcode.RomanToInt(input)
 
-	if output != "MCMXCIV" {
-		t.Error("Wrong: ", output)
+	if output != 1994 {
+		t.Error("wrong: " + strconv.Itoa(output))
 	}
 }
+
 func BenchmarkAlgorithm(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		input := 1994

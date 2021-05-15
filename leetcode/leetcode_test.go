@@ -7,18 +7,18 @@ import (
 )
 
 func TestAlgorithm(t *testing.T) {
-	input := []string{"flower", "flow", "flight"}
-	output := leetcode.LongestCommonPrefix(input)
+	input := []int{-1, 0, 1, 2, -1, -4}
+	output := leetcode.ThreeSum(input)
 
-	if output != "fl" {
-		t.Error("wrong: " + output)
+	if len(output) != 2 {
+		t.Errorf("Wrong: %d", len(output))
 	}
 
-	input = []string{"dog", "racecar", "car"}
-	output = leetcode.LongestCommonPrefix(input)
+	input = []int{-2, 0, 0, 2, 2}
+	output = leetcode.ThreeSum(input)
 
-	if output != "" {
-		t.Error("wrong: " + output)
+	if len(output) != 1 {
+		t.Errorf("Wrong: %d", len(output))
 	}
 }
 

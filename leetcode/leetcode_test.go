@@ -7,24 +7,33 @@ import (
 )
 
 func TestAlgorithm(t *testing.T) {
-	input := []int{-1, 0, 1, 2, -1, -4}
-	output := leetcode.ThreeSum(input)
+	input := []int{-1, 2, 1, -4}
+	target := 1
+	output := leetcode.ThreeSumClosest(input, target)
 
-	if len(output) != 2 {
-		t.Errorf("Wrong: %d", len(output))
+	if output != 2 {
+		t.Errorf("1. wrong: %d", output)
 	}
 
-	input = []int{-2, 0, 0, 2, 2}
-	output = leetcode.ThreeSum(input)
+	input = []int{0, 2, 1, -3}
+	target = 0
+	output = leetcode.ThreeSumClosest(input, target)
 
-	if len(output) != 1 {
-		t.Errorf("Wrong: %d", len(output))
+	if output != 0 {
+		t.Errorf("2. wrong: %d", output)
+	}
+
+	input = []int{1, 2, 4, 8, 16, 32, 64, 128}
+	target = 82
+	output = leetcode.ThreeSumClosest(input, target)
+
+	if output != 82 {
+		t.Errorf("3. wrong: %d", output)
 	}
 }
 
 func BenchmarkAlgorithm(b *testing.B) {
 	for n := 0; n < b.N; n++ {
-		input := 1994
-		leetcode.IntToRoman(input)
+
 	}
 }

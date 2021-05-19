@@ -7,28 +7,25 @@ import (
 )
 
 func TestAlgorithm(t *testing.T) {
-	input := []int{-1, 2, 1, -4}
-	target := 1
-	output := leetcode.ThreeSumClosest(input, target)
+	input := "23"
+	output := leetcode.LetterCombinations(input)
 
-	if output != 2 {
-		t.Errorf("1. wrong: %d", output)
+	if len(output) != 9 {
+		t.Errorf("1. wrong: %d", len(output))
 	}
 
-	input = []int{0, 2, 1, -3}
-	target = 0
-	output = leetcode.ThreeSumClosest(input, target)
+	input = ""
+	output = leetcode.LetterCombinations(input)
 
-	if output != 0 {
-		t.Errorf("2. wrong: %d", output)
+	if len(output) != 0 {
+		t.Errorf("2. wrong: %d", len(output))
 	}
 
-	input = []int{1, 2, 4, 8, 16, 32, 64, 128}
-	target = 82
-	output = leetcode.ThreeSumClosest(input, target)
+	input = "2"
+	output = leetcode.LetterCombinations(input)
 
-	if output != 82 {
-		t.Errorf("3. wrong: %d", output)
+	if len(output) != 3 {
+		t.Errorf("3. wrong: %d", len(output))
 	}
 }
 

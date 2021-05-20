@@ -7,25 +7,20 @@ import (
 )
 
 func TestAlgorithm(t *testing.T) {
-	input := "23"
-	output := leetcode.LetterCombinations(input)
+	input := []int{1, 0, -1, 0, -2, 2}
+	target := 0
+	output := leetcode.FourSum(input, target)
 
-	if len(output) != 9 {
+	if len(output) != 3 {
 		t.Errorf("1. wrong: %d", len(output))
 	}
 
-	input = ""
-	output = leetcode.LetterCombinations(input)
+	input = []int{2, 2, 2, 2, 2}
+	target = 8
+	output = leetcode.FourSum(input, target)
 
-	if len(output) != 0 {
+	if len(output) != 1 {
 		t.Errorf("2. wrong: %d", len(output))
-	}
-
-	input = "2"
-	output = leetcode.LetterCombinations(input)
-
-	if len(output) != 3 {
-		t.Errorf("3. wrong: %d", len(output))
 	}
 }
 

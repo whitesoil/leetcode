@@ -7,21 +7,20 @@ import (
 )
 
 func TestAlgorithm(t *testing.T) {
-	input := []int{1, 0, -1, 0, -2, 2}
-	target := 0
-	output := leetcode.FourSum(input, target)
+	input := "()"
+	output := leetcode.IsValid(input)
 
-	if len(output) != 3 {
-		t.Errorf("1. wrong: %d", len(output))
+	if !output {
+		t.Errorf("1. wrong: %t", output)
 	}
 
-	input = []int{2, 2, 2, 2, 2}
-	target = 8
-	output = leetcode.FourSum(input, target)
+	input = "()[]{}"
+	output = leetcode.IsValid(input)
 
-	if len(output) != 1 {
-		t.Errorf("2. wrong: %d", len(output))
+	if !output {
+		t.Errorf("2. wrong: %t", output)
 	}
+
 }
 
 func BenchmarkAlgorithm(b *testing.B) {

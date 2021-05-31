@@ -1,6 +1,5 @@
 package leetcode
 
-// 25분 시작 29분 스탑 31분 시작 43분 완료
 /**
  * Definition for singly-linked list.
  * type ListNode struct {

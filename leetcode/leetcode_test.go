@@ -7,19 +7,11 @@ import (
 )
 
 func TestAlgorithm(t *testing.T) {
-	input := "()"
-	output := leetcode.IsValid(input)
-
-	if !output {
-		t.Errorf("1. wrong: %t", output)
-	}
-
-	input = "()[]{}"
-	output = leetcode.IsValid(input)
-
-	if !output {
-		t.Errorf("2. wrong: %t", output)
-	}
+	node4 := &leetcode.ListNode{4, nil}
+	node3 := &leetcode.ListNode{3, node4}
+	node2 := &leetcode.ListNode{2, node3}
+	node1 := &leetcode.ListNode{1, node2}
+	leetcode.SwapPairs(node1)
 
 }
 

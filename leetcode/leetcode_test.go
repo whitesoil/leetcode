@@ -8,8 +8,9 @@ import (
 )
 
 func TestAlgorithm(t *testing.T) {
-	input := []int{1, 1}
-	output := leetcode.RemoveDuplicates(input)
+	input := []int{0, 1, 2, 2, 3, 0, 4, 2}
+	val := 2
+	output := leetcode.RemoveElement(input, val)
 
 	fmt.Println(input)
 	fmt.Println(output)
